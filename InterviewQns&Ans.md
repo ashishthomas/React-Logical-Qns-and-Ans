@@ -1,6 +1,6 @@
 ## React Js Logiccal Interview Questions and Answers
 
-Q From the below sentence,
+Q1. From the below sentence,
 the banned word is 'test', print only repeated words from that sentence
 sentence = 'This is a test sentence and this test is only a test'
 
