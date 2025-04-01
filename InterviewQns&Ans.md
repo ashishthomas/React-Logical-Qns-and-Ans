@@ -77,7 +77,6 @@ const zeroSumPair = () => {
     <div>
       <h1>Zero Sum Pair</h1>
       <p>
-        {" "}
         {result.length ? `[${result.join(",")}]` : "No Zero Sum Pair Found"}
       </p>
     </div>
