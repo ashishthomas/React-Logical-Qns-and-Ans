@@ -1,4 +1,4 @@
-## React Js Logiccal Interview Questions and Answers
+## React Js Logical Interview Questions and Answers
 
 Q1. From the below sentence,
 the banned word is 'test', print only repeated words from that sentence
