@@ -8,17 +8,18 @@
 
 <details><summary>Answer</summary>
 
-import React, { useState } from 'react';
+```js
+import React, { useState } from "react";
 
 function App() {
-const sentence = 'This is a test sentence and this test is only a test';
+  const sentence = "This is a test sentence and this test is only a test";
 
-// Function to get repeated words excluding banned words
-const getRepeatedWords = (sentence) => {
-const bannedWord = 'test';
-const words = sentence.toLowerCase().split(' ');
-const wordCount = {};
-const repeatedWords = [];
+  // Function to get repeated words excluding banned words
+  const getRepeatedWords = (sentence) => {
+    const bannedWord = "test";
+    const words = sentence.toLowerCase().split(" ");
+    const wordCount = {};
+    const repeatedWords = [];
 
     words.forEach((word) => {
       if (word !== bannedWord) {
@@ -33,19 +34,19 @@ const repeatedWords = [];
     }
 
     return repeatedWords;
+  };
 
-};
+  const repeatedWords = getRepeatedWords(sentence);
 
-const repeatedWords = getRepeatedWords(sentence);
-
-return (
-<div>
-<h1>Repeated Words</h1>
-<p>{repeatedWords.join(', ')}</p>
-</div>
-);
+  return (
+    <div>
+      <h1>Repeated Words</h1>
+      <p>{repeatedWords.join(", ")}</p>
+    </div>
+  );
 }
 
 export default App;
+```
 
 <details>
