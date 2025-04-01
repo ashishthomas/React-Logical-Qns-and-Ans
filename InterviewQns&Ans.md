@@ -1,10 +1,8 @@
 ## React Js Logiccal Interview Questions and Answers
 
-## From the below sentence,
-
-## the banned word is 'test', print only repeated words from that sentence
-
-## sentence = 'This is a test sentence and this test is only a test'
+Q From the below sentence,
+the banned word is 'test', print only repeated words from that sentence
+sentence = 'This is a test sentence and this test is only a test'
 
 <details><summary>Answer</summary>
 
@@ -50,3 +48,5 @@ export default App;
 ```
 
 </details>
+
+---
