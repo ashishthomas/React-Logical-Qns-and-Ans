@@ -2,6 +2,7 @@
 
 Q1. From the below sentence,
 the banned word is 'test', print only repeated words from that sentence
+<br>
 sentence = 'This is a test sentence and this test is only a test'
 
 <details><summary>Answer</summary>
@@ -51,7 +52,11 @@ export default App;
 
 ---
 
-Q2. Find the zero sum of an array const arr = [-9,-8,-5,0,5,8,15] output should be [5, -5]
+Q2. Find the zero sum of an array
+<br>
+const arr = [-9,-8,-5,0,5,8,15]
+<br>
+output should be [5, -5]
 
 <details><summary>Answer</summary>
 
@@ -90,8 +95,10 @@ export default zeroSumPair;
 
 ---
 
-Q3. Create an application with two buttons i.e (Add new and Clear All)  
+Q3. Create an application with two buttons i.e (Add new and Clear All)
+<br>
 (i) Whenever we click on the Add new button, a row should open which contains day, start time and end time, if we click the Add new button multiple times, then corresponding to that multiple rows to come.
+<br>
 (ii) And if we click on clearAll button, all the rows should be cleared.
 
 <details><summary>Answer</summary>
@@ -210,8 +217,10 @@ export default SecondLargestNumber;
 ---
 
 Q5. Rotate the elements in an array with respect to its index.
+<br>
 Let arr=[1,2,3,4,5,6]
 index=2
+<br>
 Output=[3,4,5,6,1,2]
 
 <details><summary>Answer</summary>
@@ -322,6 +331,66 @@ const CircleApp = () => {
 };
 
 export default CircleApp;
+```
+
+</details>
+
+---
+
+Q7. const arr = ['hello', 'sky', 'cloud']; <br>
+Without using inbuilt methods and if using loops, use only one loop and find the number of vowels in each element of the given array.  
+<br>
+Output array should be ['2', '0', '2']
+
+<details><summary>Answer</summary>
+
+```js
+import React, { useState } from "react";
+
+const VowelCount = () => {
+  const [arr] = useState(["hello", "sky", "cloud"]); // Given array
+  const [vowelCounts, setVowelCounts] = useState([]);
+
+  const countVowels = () => {
+    let result = new Array(arr.length).fill(0); // Initialize an array with 0s
+    let vowels = { a: true, e: true, i: true, o: true, u: true }; // Set to check vowels
+
+    // Single loop to iterate through all words and characters
+    for (
+      let i = 0, wordIndex = 0, charIndex = 0;
+      i < arr.join("").length;
+      i++
+    ) {
+      if (charIndex === arr[wordIndex].length) {
+        wordIndex++;
+        charIndex = 0;
+      }
+      if (wordIndex >= arr.length) break;
+
+      if (vowels[arr[wordIndex][charIndex]]) {
+        result[wordIndex]++;
+      }
+      charIndex++;
+    }
+
+    setVowelCounts(result);
+  };
+
+  return (
+    <div style={{ padding: "20px", textAlign: "center" }}>
+      <h3>Original Array: {JSON.stringify(arr)}</h3>
+      <button
+        onClick={countVowels}
+        style={{ padding: "10px", marginBottom: "20px" }}
+      >
+        Count Vowels
+      </button>
+      <h4>Vowel Counts: {JSON.stringify(vowelCounts)}</h4>
+    </div>
+  );
+};
+
+export default VowelCount;
 ```
 
 </details>
