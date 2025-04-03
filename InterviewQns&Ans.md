@@ -169,3 +169,161 @@ export default TimeScheduler;
 ```
 
 </details>
+
+---
+
+Q4. Write a program to find the second largest number in an array
+
+<details><summary>Answer</summary>
+
+```js
+import React, { useState } from "react";
+
+const SecondLargestNumber = () => {
+  const [numbers, setNumbers] = useState([10, 20, 5, 30, 30, 25, 15]);
+  const [secondLargest, setSecondLargest] = useState(null);
+
+  const findSecondLargest = () => {
+    const uniqueNumbers = [...new Set(numbers)]; // Remove duplicates
+    if (uniqueNumbers.length < 2) {
+      setSecondLargest("Not enough elements");
+      return;
+    }
+    uniqueNumbers.sort((a, b) => b - a); // Sort in descending order
+    setSecondLargest(uniqueNumbers[1]); // Second largest element
+  };
+
+  return (
+    <div style={{ padding: "20px" }}>
+      <h3>Array: {JSON.stringify(numbers)}</h3>
+      <button onClick={findSecondLargest}>Find Second Largest</button>
+      {secondLargest !== null && <h4>Second Largest: {secondLargest}</h4>}
+    </div>
+  );
+};
+
+export default SecondLargestNumber;
+```
+
+</details>
+
+---
+
+Q5. Rotate the elements in an array with respect to its index.
+Let arr=[1,2,3,4,5,6]
+index=2
+Output=[3,4,5,6,1,2]
+
+<details><summary>Answer</summary>
+
+```js
+import React, { useState } from "react";
+
+const RotateArray = () => {
+  const [arr, setArr] = useState([1, 2, 3, 4, 5, 6]);
+  const [index, setIndex] = useState(2);
+  const [rotatedArray, setRotatedArray] = useState([]);
+
+  const rotateArray = () => {
+    if (index < 0 || index >= arr.length) {
+      setRotatedArray("Invalid index");
+      return;
+    }
+    const rotated = [...arr.slice(index), ...arr.slice(0, index)];
+    setRotatedArray(rotated);
+  };
+
+  return (
+    <div style={{ padding: "20px" }}>
+      <h3>Original Array: {JSON.stringify(arr)}</h3>
+      <h4>Rotation Index: {index}</h4>
+      <button onClick={rotateArray}>Rotate Array</button>
+      {rotatedArray.length > 0 && (
+        <h4>Rotated Array: {JSON.stringify(rotatedArray)}</h4>
+      )}
+    </div>
+  );
+};
+
+export default RotateArray;
+```
+
+</details>
+
+---
+
+Q6. We have a button called add circle. Whenever we click on that circle, it should create circle and also the count should increase. Whenever you click on the circle, the circle background color should change to Grey color and also the count should increase. If we once again click on that circle background, the color should change into white and there should be a decrease in the count.
+
+<details><summary>Answer</summary>
+
+```js
+import React, { useState } from "react";
+
+const CircleApp = () => {
+  const [circles, setCircles] = useState([]); // Stores circle objects
+  const [count, setCount] = useState(0); // Keeps track of count
+
+  // Function to add a new circle
+  const addCircle = () => {
+    setCircles([...circles, { id: circles.length, isGray: false }]);
+    setCount(count + 1);
+  };
+
+  // Function to toggle circle color
+  const toggleCircleColor = (id) => {
+    setCircles((prevCircles) =>
+      prevCircles.map((circle) =>
+        circle.id === id ? { ...circle, isGray: !circle.isGray } : circle
+      )
+    );
+
+    // Adjust count based on color change
+    setCount((prevCount) =>
+      circles.find((circle) => circle.id === id)?.isGray
+        ? prevCount - 1
+        : prevCount + 1
+    );
+  };
+
+  return (
+    <div style={{ padding: "20px", textAlign: "center" }}>
+      <h3>Count: {count}</h3>
+      <button
+        onClick={addCircle}
+        style={{ padding: "10px", marginBottom: "20px" }}
+      >
+        Add Circle
+      </button>
+      <div
+        style={{
+          display: "flex",
+          gap: "10px",
+          flexWrap: "wrap",
+          justifyContent: "center",
+        }}
+      >
+        {circles.map((circle) => (
+          <div
+            key={circle.id}
+            onClick={() => toggleCircleColor(circle.id)}
+            style={{
+              width: "50px",
+              height: "50px",
+              borderRadius: "50%",
+              backgroundColor: circle.isGray ? "gray" : "white",
+              border: "2px solid black",
+              cursor: "pointer",
+            }}
+          ></div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default CircleApp;
+```
+
+</details>
+
+---
